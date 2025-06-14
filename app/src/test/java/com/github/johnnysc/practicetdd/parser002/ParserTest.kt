@@ -1,6 +1,6 @@
-package com.github.johnnysc.practicetdd
+package com.github.johnnysc.practicetdd.parser002
 
-import org.junit.Assert.assertEquals
+import org.junit.Assert
 import org.junit.Test
 
 /**
@@ -18,7 +18,7 @@ class ParserTest {
         val parser = Parser.Base(delimiter = "\n")
         val actual = parser.parse(raw = "")
         val expected = emptyList<Any>()
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -26,7 +26,7 @@ class ParserTest {
         val parser = Parser.Base(delimiter = "\n")
         val actual = parser.parse(raw = "\n")
         val expected = emptyList<Any>()
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -35,7 +35,7 @@ class ParserTest {
         val actual = parser.parse(raw = "127")
         val byte: Byte = 127
         val expected = listOf<Any>(byte)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -44,7 +44,7 @@ class ParserTest {
         val actual = parser.parse(raw = "128")
         val short: Short = 128
         val expected = listOf<Any>(short)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -53,7 +53,7 @@ class ParserTest {
         val actual = parser.parse(raw = "32768")
         val int: Int = 32768
         val expected = listOf<Any>(int)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -62,7 +62,7 @@ class ParserTest {
         val actual = parser.parse(raw = "2147483648")
         val long: Long = 2147483648
         val expected = listOf<Any>(long)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -71,7 +71,7 @@ class ParserTest {
         val actual = parser.parse(raw = "9223372036854775808")
         val float: Float = 9223372036854775808f
         val expected = listOf<Any>(float)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -80,7 +80,7 @@ class ParserTest {
         val actual = parser.parse(raw = "540282346638528860000000000000000000000")
         val double: Double = 540282346638528860000000000000000000000.0
         val expected = listOf<Any>(double)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -89,7 +89,7 @@ class ParserTest {
         val actual = parser.parse(raw = "x")
         val char: Char = 'x'
         val expected = listOf<Any>(char)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -98,7 +98,7 @@ class ParserTest {
         val actual = parser.parse(raw = "true")
         val boolean: Boolean = true
         val expected = listOf<Any>(boolean)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -107,7 +107,7 @@ class ParserTest {
         val actual = parser.parse(raw = "here is some text")
         val string = "here is some text"
         val expected = listOf<Any>(string)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -116,7 +116,7 @@ class ParserTest {
         val actual = parser.parse(raw = "null")
         val string = "null"
         val expected = listOf<Any>(string)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -135,7 +135,7 @@ class ParserTest {
         val ninth = "blah blah blah"
         val expected =
             listOf<Any>(first, second, third, forth, fifth, sixth, seventh, eighth, ninth)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 
     @Test
@@ -154,6 +154,6 @@ class ParserTest {
         val ninth = "blah blah blah"
         val expected =
             listOf<Any>(first, second, third, forth, fifth, sixth, seventh, eighth, ninth)
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
     }
 }
