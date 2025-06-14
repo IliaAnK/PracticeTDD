@@ -1,6 +1,6 @@
-package com.github.johnnysc.practicetdd
+package com.github.johnnysc.practicetdd.stack001
 
-import org.junit.Assert.assertEquals
+import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 /**
@@ -8,33 +8,33 @@ import org.junit.Test
  */
 class StackTest {
 
-    @Test(expected = IllegalStateException::class)
+    @Test(expected = IllegalArgumentException::class)
     fun `test invalid object negative count`() {
         MyStack.LIFO<CustomObject>(maxCount = -1)
     }
 
-    @Test(expected = IllegalStateException::class)
+    @Test(expected = IllegalArgumentException::class)
     fun `test invalid object negative count fifo`() {
         MyStack.FIFO<CustomObject>(maxCount = -1)
     }
 
-    @Test(expected = IllegalStateException::class)
+    @Test(expected = IllegalArgumentException::class)
     fun `test invalid object zero count`() {
         MyStack.LIFO<CustomObject>(maxCount = 0)
     }
 
-    @Test(expected = IllegalStateException::class)
+    @Test(expected = IllegalArgumentException::class)
     fun `test invalid object zero count fifo`() {
         MyStack.FIFO<CustomObject>(maxCount = 0)
     }
 
-    @Test(expected = IllegalStateException::class)
+    @Test(expected = NoSuchElementException::class)
     fun `test pop item from empty stack`() {
         val stack = MyStack.LIFO<CustomObject>(maxCount = 1)
         stack.pop()
     }
 
-    @Test(expected = IllegalStateException::class)
+    @Test(expected = NoSuchElementException::class)
     fun `test pop item from empty stack fifo`() {
         val stack = MyStack.FIFO<CustomObject>(maxCount = 1)
         stack.pop()
@@ -90,7 +90,7 @@ class StackTest {
         }
     }
 
-    @Test(expected = IllegalStateException::class)
+    @Test(expected = NoSuchElementException::class)
     fun `test pop more than pushed`() {
         val stack = MyStack.LIFO<CustomObject>(maxCount = 1)
         stack.push(item = CustomObject("1"))
@@ -98,7 +98,7 @@ class StackTest {
         stack.pop()
     }
 
-    @Test(expected = IllegalStateException::class)
+    @Test(expected = NoSuchElementException::class)
     fun `test pop more than pushed fifo`() {
         val stack = MyStack.FIFO<CustomObject>(maxCount = 1)
         stack.push(item = CustomObject("1"))
